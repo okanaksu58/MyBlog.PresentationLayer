@@ -5,10 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyBlog.DateAccessLayer.Abstract
+namespace MyBlog.BusinessLayer.Abstract
 {
-    public interface IWriterDal : IGenericDal<Writer>
+    public interface ITagService : IGenericService<Tag>
     {
-        int GetWriterCount();
     }
 }
