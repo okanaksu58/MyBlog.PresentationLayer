@@ -1,6 +1,7 @@
 using MyBlog.BusinessLayer.Abstract;
 using MyBlog.BusinessLayer.Concrete;
 using MyBlog.DateAccessLayer.Abstract;
+using MyBlog.DateAccessLayer.Context;
 using MyBlog.DateAccessLayer.EntityFramework;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +13,12 @@ builder.Services.AddScoped<ICategoryDal, EfCategoryDal>();
 
 builder.Services.AddScoped<IArticleService, ArticleManager>();
 builder.Services.AddScoped<IArticleDal, EfArticleDal>();
+
+builder.Services.AddScoped<ISocialMediaService, SocialMediaManager>();
+builder.Services.AddScoped<ISocialMediaDal, EfSocialMediaDal>();
+
+//builder.Services.AddDbContext<BlogContext>();
+//builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<BlogContext>().AddErrorDescriber<CustomIdentityValidator>();
 
 builder.Services.AddControllersWithViews();
 
